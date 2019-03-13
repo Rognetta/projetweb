@@ -20,7 +20,7 @@ const contacts = [{
 
 
 class Contact extends Component {
-    
+
     render() {
         return ("Hello world ! Life is shit");
     }
