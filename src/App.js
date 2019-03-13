@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { PieCharts } from './Components/PieChart';
+import { PieCharts } from './Chart 1/PieChart';
 import { Container, Row, Col } from 'reactstrap';
-import { SideMenu } from './Components/SideMenu';
+import { SideMenu } from './SideMenu/SideMenu';
 
 class App extends Component {
   render() {
