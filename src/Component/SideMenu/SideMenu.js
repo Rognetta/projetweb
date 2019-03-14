@@ -3,11 +3,17 @@ import React from 'react';
 
 import Sidebar from "react-sidebar";
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas)
+
 class SideMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sidebarOpen: true
+            sidebarOpen: false
         };
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
@@ -72,9 +78,8 @@ class SideMenu extends React.Component {
                     }
                     }}
                 >
-                    <button onClick={() => this.onSetSidebarOpen(true)} className="sidebar">
-                        Open sidebar
-                    </button>
+                    <FontAwesomeIcon icon="align-justify" onClick={() => this.onSetSidebarOpen(true)} className="sidebar">
+                    </FontAwesomeIcon>
                 </Sidebar>
             </>
         );
