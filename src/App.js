@@ -13,18 +13,31 @@ class App extends React.Component {
 
     render() {
         return (
-                <>
+                <Container>
                     <div className="header">
                         <SideMenu/>
                     </div>
-                    <div className="charts">
-                        <PieCharts/>
-                        <LineCharts/>
-                        <Agenda/>
-                        <Contact/>
-                    </div>
+                    <Row>
+                        <Row>
+                            <Col sm = "6" md = "6" lg = "6">
+                                <PieCharts/>
+                            </Col>
+                            <Col sm = "6" md = "6" lg = "6">
+                                <LineCharts/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Contact/>
+                            </Col>
+                            <Col>
+                                <Agenda/>
 
-                </>
+                            </Col>
+                        </Row>
+                    </Row>
+
+                </Container>
         );
     }
 
