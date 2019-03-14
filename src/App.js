@@ -8,38 +8,45 @@ import {Contact} from "./Component/Contact/Contact";
 import {Agenda} from "./Component/Date_Picker/DatePicker";
 import ButtonForm from "./Component/ButtonForm";
 import RouteTest from "./Component/Route";
-import Sidebar from "react-sidebar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
 
     render() {
         return (
-                <Container>
-                    <div className="header">
-                        <SideMenu/>
-                    </div>
+            <>
+            <div className="header">
+                <h1>Les problèmes environnementaux</h1>
+                <SideMenu/>
+            </div>
+
+                <Container fluid className="containerPerso">
                     <Row>
                         <Row>
-                            <Col sm = "6" md = "6" lg = "6">
-                                <PieCharts/>
+                            <Col sm = "8" md = "6" lg = "5" >
+                                <PieCharts />
                             </Col>
-                            <Col sm = "6" md = "6" lg = "6">
+                            <Col sm = "8" md = "6" lg = "5" >
                                 <LineCharts/>
                             </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Contact/>
+                            <Col sm = "8" md = "6" lg = "5">
+                            <Contact/>
                             </Col>
-                            <Col>
-                                <Agenda/>
+                        </Row>
+                        <Row className="spacing">
+                            <Col sm = "8" md = "6" lg = "4">
                                 <ButtonForm/>
+                            </Col>
+                            <Col sm = "8" md = "6" lg = "4">
+                                <Agenda/>
+                            </Col>
+                            <Col sm = "8" md = "6" lg = "4">
                                 <RouteTest/>
                             </Col>
                         </Row>
                     </Row>
-
                 </Container>
+                </>
         );
     }
 

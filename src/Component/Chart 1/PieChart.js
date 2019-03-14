@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { PieChart, Pie, Sector } from 'recharts';
+import "./PieChart.css";
 
 
 const data = [
@@ -71,7 +72,7 @@ class PieCharts extends PureComponent {
 
     render() {
         return (
-            <PieChart width={600} height={600} >
+            <PieChart className="pie" width={400} height={400} >
                 <Pie
                     activeIndex={this.state.activeIndex}
                     activeShape={renderActiveShape}

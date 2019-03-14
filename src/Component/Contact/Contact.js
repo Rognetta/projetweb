@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import randone from './Picture/randone.jpg';
 import randtwo from './Picture/randtwo.jpg';
 import randthree from './Picture/randthree.jpg';
+import "./Contact.css";
 
 const contacts = [{
     id: 1,
@@ -26,12 +27,13 @@ class Contact extends Component {
 
     render() {
         return (
-            <div>
+            <div className="contact">
                 <ul>
                     {contacts.map((contact) =>
                         <li key={contact.id}> {contact.name}
-                            <img src={contact.picture} width={100} height={100}/>
                             {contact.email}
+                            <div></div>
+                            <img src={contact.picture} width={100} height={100}/>
                         </li>
                     )}
                 </ul>

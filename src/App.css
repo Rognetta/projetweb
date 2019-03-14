@@ -48,6 +48,25 @@
 {
   height: 60px;
   width: 100%;
-
   background-color: rebeccapurple;
+  font-family: "Book Antiqua";
+}
+
+.containerPerso
+{
+    margin-top: 2%;
+    color: white;
+  margin-left: 6% !important;
+  display: flex !important;
+  justify-content: space-around !important;
+}
+
+h1
+{
+    margin-left: 10%;
+}
+
+.spacing
+{
+  margin-top: 20px;
 }
