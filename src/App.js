@@ -10,7 +10,7 @@ import ButtonForm from "./Component/ButtonForm";
 import RouteTest from "./Component/Route";
 import Sidebar from "react-sidebar";
 
-class App extends React.Component {
+class App extends Component {
 
     render() {
         return (

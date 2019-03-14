@@ -8,7 +8,9 @@ const ButtonForm = () => (
         <div>
             <h1>
                 <BrowserRouter>
-                    <Link to="/">Redux example</Link>
+                    <Link to="/artist">Artist Form</Link>
+                    <Link to="/album">Album Form</Link>
+                    <Link to="/track">Track Form</Link>
                 </BrowserRouter>
             </h1>
         </div>

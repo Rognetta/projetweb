@@ -1,17 +1,16 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import {BrowserRouter} from "react-router-dom";
-import Form from './Form/Form'
+import AlbumForm from './Form/Albumform'
+import ArtistForm from './Form/ArtistForm'
+import TrackForm from './Form/TrackForm'
 
-// The Main component renders one of the three provided
-// Routes (provided that one matches). Both the /roster
-// and /schedule routes will match any pathname that starts
-// with /roster or /schedule. The / route will only match
-// when the pathname is exactly the string "/"
 const RouteTest = () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path='/' component={Form}/>
+            <Route exact path='/artist' component={ArtistForm}/>
+            <Route exact path='/album' component={AlbumForm}/>
+            <Route exact path='/track' component={TrackForm}/>
         </Switch>
     </BrowserRouter>
 );
