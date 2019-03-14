@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import { PieCharts } from './Component/Chart 1/PieChart';
-import { Container, Row, Col } from 'reactstrap';
+import {PieCharts} from './Component/Chart 1/PieChart';
+import {Container, Row, Col} from 'reactstrap';
 import {SideMenu} from './Component/SideMenu/SideMenu';
-import { LineCharts } from './Component/Chart_2/LineChart';
+import {LineCharts} from './Component/Chart_2/LineChart';
 import {Contact} from "./Component/Contact/Contact";
 import {Agenda} from "./Component/Date_Picker/DatePicker";
-
+import ButtonForm from "./Component/ButtonForm";
+import RouteTest from "./Component/Route";
 import Sidebar from "react-sidebar";
 
 class App extends React.Component {
@@ -32,7 +33,8 @@ class App extends React.Component {
                             </Col>
                             <Col>
                                 <Agenda/>
-
+                                <ButtonForm/>
+                                <RouteTest/>
                             </Col>
                         </Row>
                     </Row>

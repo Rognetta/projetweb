@@ -1,4 +1,6 @@
 import React from 'react';
+//import node_modules/font_awesome/css/font_awesome.min.css;
+
 import Sidebar from "react-sidebar";
 import { Container } from 'reactstrap';
 
