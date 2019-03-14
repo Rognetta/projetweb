@@ -2,17 +2,28 @@ import React, { Component } from 'react';
 import './App.css';
 import { PieCharts } from './Chart 1/PieChart';
 import { Container, Row, Col } from 'reactstrap';
-import { SideMenu } from './SideMenu/SideMenu';
+import {MySideMenu, SideMenu} from './SideMenu/SideMenu';
 import { LineCharts } from './Chart_2/LineChart';
 
-class App extends Component {
-  render() {
-    return (
-      <Container>
-        <LineCharts/>
-      </Container>
-    );
-  }
+import Sidebar from "react-sidebar";
+
+class App extends React.Component {
+
+    render() {
+        return (
+                <>
+                    <div>
+                        <SideMenu/>
+                    </div>
+                    <div className="charts">
+                        <PieCharts/>
+                        <LineCharts/>
+                    </div>
+
+                </>
+        );
+    }
 }
 
 export default App;
+

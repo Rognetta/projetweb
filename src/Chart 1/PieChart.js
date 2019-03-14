@@ -71,7 +71,7 @@ class PieCharts extends PureComponent {
 
     render() {
         return (
-            <PieChart width={400} height={400}>
+            <PieChart width={400} height={400} >
                 <Pie
                     activeIndex={this.state.activeIndex}
                     activeShape={renderActiveShape}

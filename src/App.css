@@ -31,3 +31,14 @@
     transform: rotate(360deg);
   }
 }
+
+.sidebar
+{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.charts
+{
+  margin-left: 80px;
+}

@@ -1,49 +1,84 @@
-import React, { Component } from 'react';
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import React from 'react';
 
-class SideMenu extends Component {
+import Sidebar from "react-sidebar";
+
+class SideMenu extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            sidebarOpen: true
+        };
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    }
+
+    onSetSidebarOpen(open) {
+        this.setState({ sidebarOpen: open });
+    }
 
     render() {
         return (
-            <SideNav
-                onSelect={(selected) => {
-                    // Add your code here
-                }}
-            >
-                <SideNav.Toggle />
-                <SideNav.Nav defaultSelected="home">
-                    <NavItem eventKey="home">
-                        <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-                        </NavIcon>
-                        <NavText>
-                            Home
-            </NavText>
-                    </NavItem>
-                    <NavItem eventKey="charts">
-                        <NavIcon>
-                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-                        </NavIcon>
-                        <NavText>
-                            Charts
-            </NavText>
-                        <NavItem eventKey="charts/linechart">
-                            <NavText>
-                                Line Chart
-                </NavText>
-                        </NavItem>
-                        <NavItem eventKey="charts/barchart">
-                            <NavText>
-                                Bar Chart
-                </NavText>
-                        </NavItem>
-                    </NavItem>
-                </SideNav.Nav>
-            </SideNav>
-
-            )
+            <>
+                <Sidebar
+                    sidebar={<b>Sidebar content</b>}
+                    open={this.state.sidebarOpen}
+                    onSetOpen={this.onSetSidebarOpen}
+                    styles={{
+                        root: {
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        overflow: "hidden"
+                    },
+                        sidebar: {
+                        zIndex: 2,
+                        position: "absolute",
+                        top: 0,
+                        bottom: 0,
+                        transition: "transform .3s ease-out",
+                        WebkitTransition: "-webkit-transform .3s ease-out",
+                        willChange: "transform",
+                        overflowY: "auto"
+                    },
+                        content: {
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        overflowY: "auto",
+                        WebkitOverflowScrolling: "touch",
+                        transition: "left .3s ease-out, right .3s ease-out"
+                    },
+                        overlay: {
+                        zIndex: 1,
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        opacity: 0,
+                        visibility: "hidden",
+                        transition: "opacity .3s ease-out, visibility .3s ease-out",
+                        backgroundColor: "rgba(0,0,0,.3)"
+                    },
+                        dragHandle: {
+                        zIndex: 1,
+                        position: "fixed",
+                        top: 0,
+                        bottom: 0
+                    }
+                    }}
+                >
+                    <button onClick={() => this.onSetSidebarOpen(true)} className="sidebar">
+                        Open sidebar
+                    </button>
+                </Sidebar>
+            </>
+        );
     }
-
 }
 
 export { SideMenu };
+
