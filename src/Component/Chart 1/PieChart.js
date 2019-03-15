@@ -72,8 +72,8 @@ class PieCharts extends PureComponent {
 
     render() {
         return (
-            <>
-            <PieChart className="pie" width={400} height={400} >
+            <div className="pie">
+            <PieChart  width={400} height={400} >
                 <Pie
                     activeIndex={this.state.activeIndex}
                     activeShape={renderActiveShape}
@@ -88,8 +88,8 @@ class PieCharts extends PureComponent {
                 />
 
             </PieChart>
-            <h4>PieChart Title</h4>
-                </>
+            <p>PieChart Title</p>
+                </div>
         );
     }
 }

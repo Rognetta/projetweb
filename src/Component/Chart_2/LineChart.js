@@ -9,21 +9,21 @@ const data = [{name: '1800', uv: 1},
     {name: '2000', uv: 6},
     {name: '2020', uv: 8}];
 
-const renderLineChart = (
-    <LineChart className="line" width={600} height={300} data={data} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-    </LineChart>
-);
 
 class LineCharts extends PureComponent{
 
     render() {
         return (
-            renderLineChart
+            <div className="line">
+                <LineChart width={600} height={300} data={data} margin={{ top: 20, right: 40, bottom: 20 }}>
+                    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                </LineChart>
+                <p>LineChart title</p>
+            </div>
         );
     }
 

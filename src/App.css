@@ -55,7 +55,7 @@
 .containerPerso
 {
     margin-top: 2%;
-    margin-left: 6% !important;
+    margin-left: 15% !important;
     display: flex !important;
     justify-content: space-around !important;
 }
@@ -73,4 +73,30 @@ h1
 h4
 {
   color: white;
+}
+
+.lilBoxes
+{
+  border: black solid 1px;
+  background-color: white;
+  height: 75px;
+  width: 30%;
+  margin-left: 12%;
+  margin-bottom: 10px;
+  text-align: center;
+  padding-top: 1%;
+  border-radius: 5px;
+
+}
+
+.lilBoxes p
+{
+  font-size: 14px;
+
+}
+
+.row100
+{
+    width: 100%;
+  margin-bottom: 20px;
 }
