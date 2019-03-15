@@ -7,11 +7,11 @@ import TrackForm from './Form/TrackForm'
 
 const RouteTest = () => (
     <BrowserRouter>
-        <Switch>
+        <div>
             <Route exact path='/artist' component={ArtistForm}/>
             <Route exact path='/album' component={AlbumForm}/>
             <Route exact path='/track' component={TrackForm}/>
-        </Switch>
+        </div>
     </BrowserRouter>
 );
 

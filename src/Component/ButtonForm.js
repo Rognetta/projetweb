@@ -7,11 +7,9 @@ const ButtonForm = () => (
     <header>
         <div>
             <h1>
-                <BrowserRouter>
-                    <Link to="/artist">Artist Form</Link>
-                    <Link to="/album">Album Form</Link>
-                    <Link to="/track">Track Form</Link>
-                </BrowserRouter>
+                <Link to="/artist">Artist Form</Link>
+                <Link to="/album">Album Form</Link>
+                <Link to="/track">Track Form</Link>
             </h1>
         </div>
     </header>

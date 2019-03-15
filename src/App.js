@@ -9,24 +9,32 @@ import {Agenda} from "./Component/Date_Picker/DatePicker";
 import ButtonForm from "./Component/ButtonForm";
 import RouteTest from "./Component/Route";
 import Sidebar from "react-sidebar";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import ArtistForm from "./Component/Form/ArtistForm";
+import AlbumForm from "./Component/Form/Albumform";
+import TrackForm from "./Component/Form/TrackForm";
 
 class App extends Component {
 
     render() {
         return (
-                <>
-                    <div className="header">
-                        <SideMenu/>
+                <Router>
+                    <div>
+                        <div className="header">
+                            <SideMenu/>
+                        </div>
+                        <div className="charts">
+                            <PieCharts/>
+                            <LineCharts/>
+                            <Agenda/>
+                            <Contact/>
+                        </div>
+                        <ButtonForm/>
+                        <Route exact path='/artist' component={ArtistForm}/>
+                        <Route exact path='/album' component={AlbumForm}/>
+                        <Route exact path='/track' component={TrackForm}/>
                     </div>
-                    <div className="charts">
-                        <PieCharts/>
-                        <LineCharts/>
-                        <Agenda/>
-                        <Contact/>
-                    </div>
-                    <ButtonForm/>
-                    <RouteTest/>
-                </>
+                </Router>
         );
     }
 
