@@ -24,7 +24,7 @@ class SideMenu extends React.Component {
 
     render() {
         return (
-            <>
+            <div>
                 <Sidebar
                     sidebar={<b>Sidebar content</b>}
                     open={this.state.sidebarOpen}
@@ -81,7 +81,7 @@ class SideMenu extends React.Component {
                     <FontAwesomeIcon icon="align-justify" onClick={() => this.onSetSidebarOpen(true)} className="sidebar">
                     </FontAwesomeIcon>
                 </Sidebar>
-            </>
+            </div>
         );
     }
 }
