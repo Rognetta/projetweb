@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import "./sideBar.css";
 
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import ArtistForm from "../Form/ArtistForm";
@@ -76,6 +76,7 @@ class SideMenu extends React.Component {
 
             </SideNav>
                         <main>
+                            <Route exact path="/" component={Home} />
                             <Route path='/home' component={Home} />
                             <Route path='/artist' component={ArtistForm} />
                             <Route path='/album' component={AlbumForm} />
