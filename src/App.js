@@ -24,8 +24,9 @@ class App extends Component {
                     <Row>
                         <Row>
                             <Col sm = "8" md = "6" lg = "5" >
-                                <PieCharts />
+                                <PieCharts/>
                             </Col>
+
                             <Col sm = "8" md = "6" lg = "5" >
                                 <LineCharts/>
                             </Col>
