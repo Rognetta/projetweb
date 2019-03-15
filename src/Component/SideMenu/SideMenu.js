@@ -1,8 +1,6 @@
 import React from 'react';
-//import node_modules/font_awesome/css/font_awesome.min.css;
+//import 'node_modules/font_awesome/css/font_awesome.min.css';
 
-import Sidebar from "react-sidebar";
-import { Container } from 'reactstrap';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,11 +9,11 @@ import "./sideBar.css";
 
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-
-import {Link} from "react-router-dom";
-import {BrowserRouter} from "react-router-dom";
-import {LineCharts} from "../Chart_2/LineChart";
-import NavLink from "reactstrap/es/NavLink";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import ArtistForm from "../Form/ArtistForm";
+import TrackForm from "../Form/TrackForm";
+import AlbumForm from "../Form/Albumform";
+import Home from "../Home";
 
 library.add(fas)
 
@@ -34,41 +32,59 @@ class SideMenu extends React.Component {
 
     render() {
         return (
-            <SideNav
-                onSelect={(selected) => {
-                }}
-                className="displayMobile">
+            <Router>
+                <Route render={({ location, history }) => (
+                    <React.Fragment>
+                        <SideNav
+                            onSelect={(selected) => {
+                                const to = '/' + selected;
+                                if (location.pathname !== to) {
+                                    history.push(to);
+                                }
+                            }}
+                        >
                 <SideNav.Toggle />
                     <SideNav.Nav defaultSelected="home">
                         <NavItem eventKey="home">
                             <NavIcon>
                                 <FontAwesomeIcon icon="home"/>
                             </NavIcon>
-                            <NavLink href="/">Home</NavLink>
+                            <NavText>Home</NavText>
                         </NavItem>
 
                         <NavItem eventKey="artist">
                             <NavIcon>
-                                <FontAwesomeIcon icon="question-circle"/>
+                                <FontAwesomeIcon icon="microphone"/>
                             </NavIcon>
-                            <NavLink href="/artiste"> Formulaire artiste </NavLink>
+                            <NavText> Artistes </NavText>
                         </NavItem>
 
                         <NavItem eventKey="album">
                             <NavIcon>
-                                <FontAwesomeIcon icon="question-circle"/>
+                                <FontAwesomeIcon icon="caret-square-right"/>
                             </NavIcon>
-                            <NavLink href="/album"> Formulaire album </NavLink>
+                            <NavText> Albums </NavText>
                         </NavItem>
 
                         <NavItem eventKey="track">
                             <NavIcon>
-                                <FontAwesomeIcon icon="question-circle"/>
+                                <FontAwesomeIcon icon="music"/>
                             </NavIcon>
-                            <NavLink href="/track"> Formulaire track </NavLink>
+                            <NavText> Tracks </NavText>
                         </NavItem>
                     </SideNav.Nav>
+
             </SideNav>
+                        <main>
+                            <Route path='/home' component={Home} />
+                            <Route path='/artist' component={ArtistForm} />
+                            <Route path='/album' component={AlbumForm} />
+                            <Route path='/track' component={TrackForm} />
+                        </main>
+                    </React.Fragment>
+                    )}/>
+            </Router>
+
         );
     }
 }

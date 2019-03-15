@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import './Form.css';
+import { Button } from 'react-bootstrap';
 
 class TrackFrom extends Component {
     render() {
         return (
-            <Form>
+            <>
+            <Form className="form">
                 <FormGroup>
                     <Label for="albumName">Nom de l'album</Label>
                     <Input type="name" name="albumName" id="albumName"/>
@@ -29,7 +32,10 @@ class TrackFrom extends Component {
                     <Label for="featuring">Artiste en featuring</Label>
                     <Input type="name" name="featuring" id="featuring"/>
                 </FormGroup>
+
             </Form>
+            <Button className="buttonPerso" variant="success">Soumettre</Button>
+        </>
         );
     }
 }

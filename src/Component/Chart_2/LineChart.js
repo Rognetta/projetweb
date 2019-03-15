@@ -22,7 +22,7 @@ class LineCharts extends PureComponent{
                     <YAxis />
                     <Tooltip />
                 </LineChart>
-                <p>LineChart title</p>
+                <p>Evolution de la population humaine (en milliards)</p>
             </div>
         );
     }

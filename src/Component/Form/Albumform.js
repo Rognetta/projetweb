@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import './Form.css';
+import { Button } from 'react-bootstrap';
 
 class AlbumForm extends Component {
     render() {
         return (
-            <Form>
+            <>
+            <Form className="form">
                 <FormGroup>
                     <Label for="artistName">Nom de l'artiste</Label>
                     <Input type="name" name="artistName" id="artistName"/>
@@ -26,6 +29,8 @@ class AlbumForm extends Component {
                     <Input type="url" name="coverUrl" id="coverUrl"/>
                 </FormGroup>
             </Form>
+                <Button className="buttonPerso" variant="success">Soumettre</Button>
+                </>
         );
     }
 }

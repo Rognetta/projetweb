@@ -1,9 +1,16 @@
 .form
 {
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: auto;
+    width: 70%;
+
+}
+
+Label
+{
+    color: white;
+}
+
+.buttonPerso
+{
+    margin-left: 45%;
 }

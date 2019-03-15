@@ -11,6 +11,7 @@
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "react": "^16.8.4",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-cursor-position": "^3.0.3",
     "react-dom": "^16.8.4",
     "react-icons": "^2.2.7",
