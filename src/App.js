@@ -29,18 +29,19 @@ class App extends React.Component {
                             <Col sm = "8" md = "6" lg = "5" >
                                 <LineCharts/>
                             </Col>
-                            <Col sm = "8" md = "6" lg = "5">
-                            <Contact/>
-                            </Col>
                         </Row>
                         <Row className="spacing">
                             <Col sm = "8" md = "6" lg = "4">
                                 <ButtonForm/>
                             </Col>
+                            <Col sm = "8" md = "6" lg = "5">
+                                <Contact/>
+                            </Col>
+
                             <Col sm = "8" md = "6" lg = "4">
                                 <Agenda/>
                             </Col>
-                            <Col sm = "8" md = "6" lg = "4">
+                            <Col sm = "8" md = "6" lg = "4" className="spacing">
                                 <RouteTest/>
                             </Col>
                         </Row>

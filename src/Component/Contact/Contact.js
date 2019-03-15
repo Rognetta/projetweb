@@ -6,19 +6,19 @@ import "./Contact.css";
 
 const contacts = [{
     id: 1,
-    name: 'Raphaël Séguin',
+    name: 'Raphaël Séguin ',
     age: 21,
-    email: 'raphel.seguin@edu.ece.fr',
+    email: ' raphel.seguin@edu.ece.fr',
     picture: randone}, {
     id: 2,
-    name: 'Aurelio Rognetta',
+    name: 'Aurelio Rognetta ',
     age: 20,
-    email: 'aurelio.rognetta@edu.ece.fr',
+    email: 'aurelio.rognetta@edu.ece.fr ',
     picture: randtwo}, {
     id: 3,
-    name: 'Jean-Kevin Bloups',
+    name: 'Jean-Kevin Bloups ',
     age: 12,
-    email: 'jkbloups@yahoo.com',
+    email: 'jkbloups@yahoo.com ',
     picture: randthree}];
 
 
@@ -30,10 +30,10 @@ class Contact extends Component {
             <div className="contact">
                 <ul>
                     {contacts.map((contact) =>
-                        <li key={contact.id}> {contact.name}
+                        <li key={contact.id}> Nom : {contact.name} ; E-mail :
                             {contact.email}
                             <div></div>
-                            <img src={contact.picture} width={100} height={100}/>
+                            <img src={contact.picture} width={100} height={100} style={{marginLeft: "35%", border: "solid black 1px", marginTop: "1%", borderBottomRightRadius: "15px", borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px"}}/>
                         </li>
                     )}
                 </ul>

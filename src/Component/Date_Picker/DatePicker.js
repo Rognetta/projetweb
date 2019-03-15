@@ -23,7 +23,7 @@ class Agenda extends Component {
     render() {
         const { date } = this.state;
         return (
-            <div className="datePick" style={{ width: 400, margin: "100px auto"}}>
+            <div className="datePick" style={{ width: 200, height: 100, margin: "auto", marginRight: 10}}>
                 <DatePicker onChange={this.handleChange} />
                 <Collapse isOpen={this.state.collapse} style={{ marginTop: 20 }}>
                     <Alert message={`Selected Date: ${date ? date.format('YYYY-MM-DD') : 'None'}`} type="success" />

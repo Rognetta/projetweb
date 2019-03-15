@@ -55,10 +55,9 @@
 .containerPerso
 {
     margin-top: 2%;
-    color: white;
-  margin-left: 6% !important;
-  display: flex !important;
-  justify-content: space-around !important;
+    margin-left: 6% !important;
+    display: flex !important;
+    justify-content: space-around !important;
 }
 
 h1
