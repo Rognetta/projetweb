@@ -21,6 +21,10 @@ class AppCopy extends Component {
         return (
             <Router>
                 <div>
+                    <div className="header">
+                        <h1>Les problèmes environnementaux</h1>
+                        <SideMenu/>
+                    </div>
                     <ButtonForm/>
                     <Route exact path='/' component={Home} />
                     <Route path='/artist' component={ArtistForm} />

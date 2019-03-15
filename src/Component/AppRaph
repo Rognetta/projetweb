@@ -1,16 +1,24 @@
 import React, {Component} from 'react';
-import './Home.css';
-import {PieCharts} from "./Chart 1/PieChart";
+import './App.css';
+import {PieCharts} from './Component/Chart 1/PieChart';
 import {Container, Row, Col} from 'reactstrap';
-import {LineCharts} from './Chart_2/LineChart';
-import {Contact} from "./Contact/Contact";
-import {Agenda} from "./Date_Picker/DatePicker";
+import {SideMenu} from './Component/SideMenu/SideMenu';
+import {LineCharts} from './Component/Chart_2/LineChart';
+import {Contact} from "./Component/Contact/Contact";
+import {Agenda} from "./Component/Date_Picker/DatePicker";
+import ButtonForm from "./Component/ButtonForm";
+import RouteTest from "./Component/Route";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class Home extends Component {
+class App extends Component {
+
     render() {
         return (
             <>
+            <div className="header">
+                <h1>Les problèmes environnementaux</h1>
+                <SideMenu/>
+            </div>
                 <Container fluid className="containerPerso">
                     <Row>
                         <Row>
@@ -24,7 +32,7 @@ class Home extends Component {
                         </Row>
                         <Row className="spacing">
                             <Col sm = "8" md = "6" lg = "4">
-                                <Contact/>
+                                <ButtonForm/>
                             </Col>
                             <Col sm = "8" md = "6" lg = "5">
                                 <Contact/>
@@ -34,14 +42,16 @@ class Home extends Component {
                                 <Agenda/>
                             </Col>
                             <Col sm = "8" md = "6" lg = "4" className="spacing">
-                                <Contact/>
+                                <RouteTest/>
                             </Col>
                         </Row>
                     </Row>
                 </Container>
-            </>
-    );
+                </>
+        );
     }
+
 }
 
-export default Home;
+export default App;
+
