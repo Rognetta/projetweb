@@ -12,7 +12,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import ArtistForm from "../Form/ArtistForm";
 import TrackForm from "../Form/TrackForm";
-import AlbumForm from "../Form/Albumform";
+import DeleteATrack from "../Form/DeleteATrack";
 import Home from "../Home";
 
 library.add(fas)
@@ -79,7 +79,7 @@ class SideMenu extends React.Component {
                             <Route exact path="/" component={Home} />
                             <Route path='/home' component={Home} />
                             <Route path='/artist' component={ArtistForm} />
-                            <Route path='/album' component={AlbumForm} />
+                            <Route path='/album' component={DeleteATrack} />
                             <Route path='/track' component={TrackForm} />
                         </main>
                     </React.Fragment>

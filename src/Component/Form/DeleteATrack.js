@@ -3,7 +3,7 @@ import {Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './Form.css';
 import axios from 'axios';
 
-class AlbumForm extends Component {
+class DeleteATrack extends Component {
 
 
     constructor(props) {
@@ -71,4 +71,4 @@ class AlbumForm extends Component {
     }
 }
 
-export default AlbumForm;
+export default DeleteATrack;
