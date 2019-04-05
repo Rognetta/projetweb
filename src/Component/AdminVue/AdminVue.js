@@ -6,6 +6,8 @@ import Container from "react-bootstrap/es/Container";
 import Row from "react-bootstrap/es/Row";
 import axios from 'axios';
 import Col from "react-bootstrap/es/Col";
+import {AddArtist} from "./AddArtist";
+
 
 class AdminVue extends Component {
 
@@ -27,7 +29,6 @@ class AdminVue extends Component {
                     item.push(<p>Nom de l'artiste : {data[i].nom}</p>)
                     console.log(data[i].title)
                 }
-
                 this.setState({items : item})
             })
     }
@@ -42,7 +43,7 @@ class AdminVue extends Component {
                     </Col>
                 </Row>
                 <Row>
-
+                    <AddArtist/>
                 </Row>
 
             </Container>

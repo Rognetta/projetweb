@@ -28,7 +28,7 @@ class ArtistForm extends Component {
 
     render() {
         return (
-            <>
+            <div>
             <Form className="form">
                 <FormGroup>
                     <Label for="artistName">Nom de l'artiste</Label>
@@ -55,7 +55,7 @@ class ArtistForm extends Component {
                 </FormGroup>
             </Form>
                 <Button className="buttonPerso" variant="success" onClick={this.finalSubmit}>Soumettre</Button>
-                </>
+                </div>
         );
     }
 }
