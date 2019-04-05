@@ -4,14 +4,29 @@ import './Form.css';
 import { Button } from 'react-bootstrap';
 
 class AlbumForm extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {value: 'coconut'};
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('Your favorite flavor is: ' + this.state.value);
+        event.preventDefault();
+    }
+
+
     render() {
         return (
             <>
             <Form className="form">
-                <FormGroup>
-                    <Label for="artistName">Nom de l'artiste</Label>
-                    <Input type="name" name="artistName" id="artistName"/>
-                </FormGroup>
                 <FormGroup>
                     <Label for="albumName">Nom de l'album</Label>
                     <Input type="name" name="albumName" id="albumName"/>
@@ -27,6 +42,17 @@ class AlbumForm extends Component {
                 <FormGroup>
                     <Label for="coverUrl">Couverture de l'album</Label>
                     <Input type="url" name="coverUrl" id="coverUrl"/>
+                </FormGroup>
+                <FormGroup onSubmit = {this.handleSubmit}>
+                    <Label for="tracksIn">Chansons de l'album : </Label>
+                    <Label className="checkB">
+                        <select value={this.state.value} onChange={this.handleChange}>
+                        <option value="grapefruit">Grapefruit</option>
+                        <option value="lime">Lime</option>
+                        <option value="coconut">Coconut</option>
+                        <option value="mango">Mango</option>
+                    </select></Label>
+                    <input type="submit" value="Ajouter" className="checkB" />
                 </FormGroup>
             </Form>
                 <Button className="buttonPerso" variant="success">Soumettre</Button>
