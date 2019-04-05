@@ -12,7 +12,6 @@ class DeleteATrack extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleClic = this.handleClic.bind(this);
 
-
     }
 
     state = {

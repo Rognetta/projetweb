@@ -24,7 +24,7 @@ class AdminVue extends Component {
             .then(({data}) => {
                 for (var i = 0; i<data.length; i++)
                 {
-                    item.push(<p>Nom de l'artiste : {data[i].nom}</p>)
+                    item.push(<h5 className="PARA" >Nom de l'artiste : {data[i].nom}</h5>)
                     console.log(data[i].title)
                 }
 
