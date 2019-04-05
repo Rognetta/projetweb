@@ -8,10 +8,40 @@ import {Contact} from "./Contact/Contact";
 import {Agenda} from "./Date_Picker/DatePicker";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {MouseTracker} from "./MouseTracker/MouseTracker";
+import axios from 'axios';
 
 class Home extends Component {
 
+    state = {
+        artists: null,
+        albums: null,
+        tracks: null
+    }
+
+    componentDidMount() {
+        /*axios.get("http://localhost:3000/artist")
+            .then(res => {
+                this.setState({artists: res.data})
+            })*/
+        axios.get("http://localhost:3000/album")
+            .then(res => {
+                this.setState({albums: res.data[0]})
+            })
+        /*axios.get("http://localhost:3000/track")
+            .then(res => {
+                this.setState({tracks: res.data})
+            })*/
+
+
+    }
+
     render() {
+        if(this.state.albums == null)
+        {
+            return (
+                <div>Ta Gueule, ferme bien ta gueule !</div>
+            )
+        }
         return (
                 <Container fluid className="containerPerso">
                     <Row>
@@ -23,7 +53,7 @@ class Home extends Component {
                                 </div>
                                 <div className="lilBoxes">
                                     <h6>Nombres artistes</h6>
-                                    <p>28</p>
+                                    <ul>{this.state.albums.map(album => <li>{album.title}</li>)}</ul>
                                 </div>
                             </Col>
 

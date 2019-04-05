@@ -8,7 +8,7 @@ class App extends Component {
     render() {
         return (
                     <div className="header">
-                        <h1>Les problèmes environnementaux</h1>
+                        <h1>Musique Dashboard</h1>
                         <SideMenu/>
                     </div>
         );
