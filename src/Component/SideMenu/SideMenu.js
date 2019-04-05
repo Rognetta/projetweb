@@ -13,6 +13,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import ArtistForm from "../Form/ArtistForm";
 import TrackForm from "../Form/TrackForm";
 import DeleteATrack from "../Form/DeleteATrack";
+import AdminVue from "../AdminVue/AdminVue";
 import Home from "../Home";
 
 library.add(fas)
@@ -81,6 +82,7 @@ class SideMenu extends React.Component {
                             <Route path='/artist' component={ArtistForm} />
                             <Route path='/album' component={DeleteATrack} />
                             <Route path='/track' component={TrackForm} />
+                            <Route path='/admin' component = {AdminVue}/>
                         </main>
                     </React.Fragment>
                     )}/>
