@@ -1,62 +1,72 @@
 import React, {Component} from 'react';
 import {Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './Form.css';
-import { Button } from 'react-bootstrap';
+import axios from 'axios';
 
 class AlbumForm extends Component {
 
+
     constructor(props) {
         super(props);
-        this.state = {value: 'coconut'};
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClic = this.handleClic.bind(this);
+
+
     }
+
+    state = {
+        items : null,
+        idToS : null
+    }
+
+    componentDidMount()
+    {
+        const item =[];
+        axios.get("http://localhost:3000/track")
+            .then(({data}) => {
+                for (var i = 0; i<data.length; i++)
+                {
+                   item.push(<option value={data[i]._id}>{ data[i].title }</option>)
+                }
+
+                this.setState({items : item})
+            })
+    }
+
 
     handleChange(event) {
         this.setState({value: event.target.value});
+        this.setState({idToS: event.target.value});
+        console.log(event.target.value)
+
     }
 
-    handleSubmit(event) {
-        alert('Your favorite flavor is: ' + this.state.value);
-        event.preventDefault();
+    handleClic(event) {
+
+    this.componentDidMount()
+        {
+            axios.delete("http://localhost:3000/track/" + this.state.idToS)
+            document.location.reload(true)
+        }
     }
 
 
     render() {
+
         return (
-            <>
             <Form className="form">
                 <FormGroup>
-                    <Label for="albumName">Nom de l'album</Label>
-                    <Input type="name" name="albumName" id="albumName"/>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="releaseDate">Date de sortie de l'album</Label>
-                    <Input type="date" name="releaseDate" id="releaseDate"/>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="Genre">Genre de l'album</Label>
-                    <Input type="name" name="Genre" id="Genre"/>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="coverUrl">Couverture de l'album</Label>
-                    <Input type="url" name="coverUrl" id="coverUrl"/>
-                </FormGroup>
-                <FormGroup onSubmit = {this.handleSubmit}>
-                    <Label for="tracksIn">Chansons de l'album : </Label>
+                    <Label for="tracksIn">Supprimer une chanson </Label>
                     <Label className="checkB">
-                        <select value={this.state.value} onChange={this.handleChange}>
-                        <option value="grapefruit">Grapefruit</option>
-                        <option value="lime">Lime</option>
-                        <option value="coconut">Coconut</option>
-                        <option value="mango">Mango</option>
-                    </select></Label>
-                    <input type="submit" value="Ajouter" className="checkB" />
+                        <select onChange={this.handleChange}>
+                            <option defaultValue={"value"}>Choose Here</option>
+                            {this.state.items}
+                        </select>
+                    </Label>
+                    <input  onClick = {this.handleClic} type="button" value="Supprimer" className="checkB" />
                 </FormGroup>
             </Form>
-                <Button className="buttonPerso" variant="success">Soumettre</Button>
-                </>
         );
     }
 }
