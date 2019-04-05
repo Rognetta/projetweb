@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './Home.css';
 import {PieCharts} from './Chart 1/PieChart';
 import {Container, Row, Col} from 'reactstrap';
-import {SideMenu} from './SideMenu/SideMenu';
 import {LineCharts} from './Chart_2/LineChart';
 import {Contact} from "./Contact/Contact";
 import {Agenda} from "./Date_Picker/DatePicker";
@@ -19,13 +18,19 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        /*axios.get("http://localhost:3000/artist")
-            .then(res => {
-                this.setState({artists: res.data})
-            })*/
+        axios.get("http://localhost:3000/artist")
+            .then(({data}) => {
+                this.setState({artists: data.length})
+            })
         axios.get("http://localhost:3000/album")
-            .then(res => {
-                this.setState({albums: res.data[0]})
+            .then(({data}) => {
+
+                for (var i = 0; i< data.length; i++)
+                {
+                    var tab = new Array(data.length);
+                    tab[i] = data[i].title;
+                }
+                this.setState({albums : tab})
             })
         /*axios.get("http://localhost:3000/track")
             .then(res => {
@@ -53,7 +58,7 @@ class Home extends Component {
                                 </div>
                                 <div className="lilBoxes">
                                     <h6>Nombres artistes</h6>
-                                    <ul>{this.state.albums.map(album => <li>{album.title}</li>)}</ul>
+                                    <p>{this.state.artists}</p>
                                 </div>
                             </Col>
 
