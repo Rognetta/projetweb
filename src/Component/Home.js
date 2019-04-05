@@ -12,64 +12,85 @@ import axios from 'axios';
 class Home extends Component {
 
     state = {
-        artists: null,
-        albums: null,
-        tracks: null
+        nbAlbums: null,
+        nbEcoutes: null,
+        moyDureeEcouteMin: null,
+        moyDureeEcouteSec: null,
+        nbFollower: null
     }
 
     componentDidMount() {
-        axios.get("http://localhost:3000/artist")
-            .then(({data}) => {
-                this.setState({artists: data.length})
-            })
         axios.get("http://localhost:3000/album")
             .then(({data}) => {
-
-                for (var i = 0; i< data.length; i++)
-                {
-                    var tab = new Array(data.length);
-                    tab[i] = data[i].title;
-                }
-                this.setState({albums : tab})
+                this.setState({nbAlbums : data.length})
             })
-        /*axios.get("http://localhost:3000/track")
-            .then(res => {
-                this.setState({tracks: res.data})
-            })*/
 
+        axios.get("http://localhost:3000/track")
+            .then(({data}) => {
+
+                let i;
+                let nbListenings = 0;
+                let moy = 0;
+
+                for (i = 0; i < data.length; i++)
+                {
+                    nbListenings += data[i].listenings;
+                    moy += data[i].duration;
+                }
+
+                moy = moy/i;
+
+                console.log(moy);
+                let sec = moy % 60;
+                sec = Math.trunc(sec);
+                console.log(sec);
+                let min = (moy - sec) / 60;
+                min = Math.trunc(min);
+                console.log(min);
+
+                this.setState({nbEcoutes : nbListenings})
+                this.setState({moyDureeEcouteMin : min})
+                this.setState({moyDureeEcouteSec : sec})
+            })
+
+        axios.get("http://localhost:3000/artist")
+            .then(({data}) => {
+
+                let i;
+                let nbFol = 0;
+
+                for (i = 0; i < data.length; i++) {
+                    nbFol += data[i].followers;
+                }
+                this.setState({nbFollower : nbFol})
+            })
 
     }
 
     render() {
-        if(this.state.albums == null)
-        {
-            return (
-                <div>Ta Gueule, ferme bien ta gueule !</div>
-            )
-        }
         return (
                 <Container fluid className="containerPerso">
                     <Row>
                         <Row className="row100">
                             <Col sm = "6" md = "6" lg = "6">
                                 <div className="lilBoxes">
-                                    <h6>Nombres d'albums</h6>
-                                    <p>46</p>
+                                    <h6>Nombre d'albums</h6>
+                                    <p>{this.state.nbAlbums}</p>
                                 </div>
                                 <div className="lilBoxes">
-                                    <h6>Nombres artistes</h6>
-                                    <p>{this.state.artists}</p>
+                                    <h6>Nombre total d'écoute</h6>
+                                    <p>{this.state.nbEcoutes}</p>
                                 </div>
                             </Col>
 
                             <Col sm = "6" md = "6" lg = "6">
                                 <div className="lilBoxes">
-                                    <h6>Nombres de Tracks</h6>
-                                    <p>156</p>
+                                    <h6>Moyenne de durée des chansons</h6>
+                                    <p>{this.state.moyDureeEcouteMin} minutes et {this.state.moyDureeEcouteSec} secondes</p>
                                 </div>
                                 <div className="lilBoxes">
-                                    <h6>Nombres de followers</h6>
-                                    <p>12 500</p>
+                                    <h6>Nombre de followers total</h6>
+                                    <p>{this.state.nbFollower}</p>
                                 </div>
                             </Col>
                         </Row>
