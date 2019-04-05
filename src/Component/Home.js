@@ -39,7 +39,6 @@ class Home extends Component {
                 }
 
                 moy = moy/i;
-
                 console.log(moy);
                 let sec = moy % 60;
                 sec = Math.trunc(sec);
