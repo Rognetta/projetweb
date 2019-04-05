@@ -13,7 +13,9 @@ class AddArtist extends Component {
     constructor(props) {
         super(props);
         this.finalSubmit = this.finalSubmit.bind(this);
-        this.appelsecondaire = this.appelsecondaire.bind(this);
+        this.handleOnChangeDate = this.handleOnChangeDate(this);
+        this.handleOnChangeFollowers = this.handleOnChangeFollowers(this);
+        this.handleOnChangeNom = this.handleOnChangeNom(this);
     }
 
     state = {
@@ -54,7 +56,6 @@ class AddArtist extends Component {
     handleOnChangeFollowers(event) {
         this.setState({followers : event.target.value});
     }
-}
 
     render() {
         return (
