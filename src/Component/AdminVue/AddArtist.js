@@ -29,18 +29,18 @@ class AddArtist extends Component {
 
     finalSubmit(event) {
         console.log("A submit");
-        /*
+
+        //Random mongokey
         var mongoObjectId = function () {
             var timestamp = (new Date().getTime() / 1000 | 0).toString(16);
             return timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, function() {
                 return (Math.random() * 16 | 0).toString(16);
             }).toLowerCase();
-        };*/
+        };
 
-        let x = document.getElementById("frm");
-        this.setState({nom : x.elements[0].value});
+        this.setState({albums : mongoObjectId()});
 
-        //console.log(this.state.nom);
+        axios.push("http://localhost:3000/artist", this.state);
     }
 
     handleOnChangeNom(event) {
@@ -58,38 +58,38 @@ class AddArtist extends Component {
 
     render() {
         return (
-                    <div>
-                        <Form className="form" id="frm">
-                            <FormGroup>
-                                <Label for="artistName">Nom de l'artiste</Label>
-                                <select onChange={this.handleOnChangeNom}/>
-                                <Input type="name" name="artistName" id="artistName"/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="dateNaissanceArtiste">Date de Naissance de l'artiste</Label>
-                                <select onChange={this.handleOnChangeDate}/>
-                                <Input type="date" name="dateNaissanceArtiste" id="dateNaissanceArtiste"/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="followersNumber">Nombre de followers</Label>
-                                <select onChange={this.handleOnChangeFollowers}/>
-                                <Input type="number" name="followersNumber" id="followersNumber"/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="tracksIn">Albums réalisés : </Label>
-                                <Label className="checkB">
-                                    <select>
-                                        <option value="grapefruit">Grapefruit</option>
-                                        <option value="lime">Lime</option>
-                                        <option value="coconut">Coconut</option>
-                                        <option value="mango">Mango</option>
-                                    </select>
-                                </Label>
-                                <input type="submit" value="Ajouter" className="checkB" />
-                            </FormGroup>
-                        </Form>
-                        <Button className="buttonPerso" variant="success" onClick={this.finalSubmit}>Soumettre</Button>
-                    </div>
+            <div>
+                <Form className="form" id="frm">
+                    <FormGroup>
+                        <Label for="artistName">Nom de l'artiste</Label>
+                        <select onChange={this.handleOnChangeNom}></select>
+                        <Input type="name" name="artistName" id="artistName"/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="dateNaissanceArtiste">Date de Naissance de l'artiste</Label>
+                        <select onChange={this.handleOnChangeDate}></select>
+                        <Input type="date" name="dateNaissanceArtiste" id="dateNaissanceArtiste"/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="followersNumber">Nombre de followers</Label>
+                        <select onChange={this.handleOnChangeFollowers}></select>
+                        <Input type="number" name="followersNumber" id="followersNumber"/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="tracksIn">Albums réalisés : </Label>
+                        <Label className="checkB">
+                            <select>
+                                <option value="grapefruit">Grapefruit</option>
+                                <option value="lime">Lime</option>
+                                <option value="coconut">Coconut</option>
+                                <option value="mango">Mango</option>
+                            </select>
+                        </Label>
+                        <input type="submit" value="Ajouter" className="checkB" />
+                    </FormGroup>
+                </Form>
+                <Button className="buttonPerso" variant="success" onClick={this.finalSubmit}>Soumettre</Button>
+            </div>
         );
     }
 }
