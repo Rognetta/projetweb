@@ -22,9 +22,13 @@ class ArtistForm extends Component {
         event.preventDefault();
     }
 
+    finalSubmit(event) {
+        console.log("q;hgk bn:,");
+    }
+
     render() {
         return (
-            <>
+            <div>
             <Form className="form">
                 <FormGroup>
                     <Label for="artistName">Nom de l'artiste</Label>
@@ -50,8 +54,8 @@ class ArtistForm extends Component {
                     <input type="submit" value="Ajouter" className="checkB" />
                 </FormGroup>
             </Form>
-                <Button className="buttonPerso" variant="success">Soumettre</Button>
-                </>
+                <Button className="buttonPerso" variant="success" onClick={this.finalSubmit}>Soumettre</Button>
+                </div>
         );
     }
 }
