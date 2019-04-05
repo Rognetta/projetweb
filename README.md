@@ -1,3 +1,9 @@
+# projetweb
+Projet en commun avec Raphaël Séguin et Aurelio Rognetta.
+Le frontend du projet est dans le repository initulé : "projetbackend".
+Nous avons essayé les techniques de pair programming pour se familiariser avec et surmonter les difficultés plus rapidement.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
