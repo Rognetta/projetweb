@@ -5,7 +5,6 @@ import axios from 'axios';
 
 class DeleteATrack extends Component {
 
-
     constructor(props) {
         super(props);
 

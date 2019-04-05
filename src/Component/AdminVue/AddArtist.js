@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
 import './adminVue.css';
 import { Button } from 'react-bootstrap';
-import Container from "react-bootstrap/es/Container";
-import Row from "react-bootstrap/es/Row";
 import axios from 'axios';
-import Col from "react-bootstrap/es/Col";
 
 
 class AddArtist extends Component {
@@ -13,14 +10,16 @@ class AddArtist extends Component {
     constructor(props) {
         super(props);
         this.finalSubmit = this.finalSubmit.bind(this);
-        this.appelsecondaire = this.appelsecondaire.bind(this);
+        this.handleOnChangeFollowers= this.handleOnChangeFollowers.bind(this);
+        this.handleOnChangeDate= this.handleOnChangeDate.bind(this);
+        this.handleOnChangeNom= this.handleOnChangeNom.bind(this);
     }
 
     state = {
-        nom : null,
-        birth : null,
-        followers : null,
-        albums : null,
+        nom: null,
+        birth: null,
+        followers: null,
+        albums: null
     }
 
     componentDidMount() {
@@ -33,59 +32,46 @@ class AddArtist extends Component {
         //Random mongokey
         var mongoObjectId = function () {
             var timestamp = (new Date().getTime() / 1000 | 0).toString(16);
-            return timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, function() {
+            return timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, function () {
                 return (Math.random() * 16 | 0).toString(16);
             }).toLowerCase();
         };
 
-        this.setState({albums : mongoObjectId()});
+        this.setState({albums: mongoObjectId()});
 
-        axios.push("http://localhost:3000/artist", this.state);
+        axios.put("http://localhost:3000/artist", this.state);
     }
 
     handleOnChangeNom(event) {
-        this.setState({nom : event.target.value});
+        this.setState({value: event.target.value});
+        this.setState({nom: event.target.value});
     }
 
     handleOnChangeDate(event) {
-        this.setState({birth : event.target.value});
+        this.setState({value: event.target.value});
+        this.setState({birth: event.target.value});
     }
 
     handleOnChangeFollowers(event) {
-        this.setState({followers : event.target.value});
+        this.setState({value: event.target.value});
+        this.setState({followers: event.target.value});
     }
-}
 
     render() {
         return (
             <div>
                 <Form className="form" id="frm">
-                    <FormGroup>
+                    <FormGroup >
                         <Label for="artistName">Nom de l'artiste</Label>
-                        <select onChange={this.handleOnChangeNom}></select>
-                        <Input type="name" name="artistName" id="artistName"/>
+                        <Input type="text" name="artistName" id="artistName" value = {this.state.nom} onChange={this.handleOnChangeNom} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="dateNaissanceArtiste">Date de Naissance de l'artiste</Label>
-                        <select onChange={this.handleOnChangeDate}></select>
-                        <Input type="date" name="dateNaissanceArtiste" id="dateNaissanceArtiste"/>
+                        <Input type="date" name="dateNaissanceArtiste" id="dateNaissanceArtiste" value = {this.state.birth} onChange={this.handleOnChangeDate}/>
                     </FormGroup>
                     <FormGroup>
                         <Label for="followersNumber">Nombre de followers</Label>
-                        <select onChange={this.handleOnChangeFollowers}></select>
-                        <Input type="number" name="followersNumber" id="followersNumber"/>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="tracksIn">Albums réalisés : </Label>
-                        <Label className="checkB">
-                            <select>
-                                <option value="grapefruit">Grapefruit</option>
-                                <option value="lime">Lime</option>
-                                <option value="coconut">Coconut</option>
-                                <option value="mango">Mango</option>
-                            </select>
-                        </Label>
-                        <input type="submit" value="Ajouter" className="checkB" />
+                        <Input type="number" name="followersNumber" id="followersNumber" value = {this.state.followers} onChange={this.handleOnChangeFollowers}/>
                     </FormGroup>
                 </Form>
                 <Button className="buttonPerso" variant="success" onClick={this.finalSubmit}>Soumettre</Button>
